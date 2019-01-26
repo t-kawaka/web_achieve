@@ -7,7 +7,7 @@ server = WEBrick::HTTPServer.new({
   CGIInterpreter: '/usr/local/rvm/rubies/ruby-2.4.0/bin/ruby'
 })
 
-server.mount('/test', WEBrick::HTTPServlet::ERBHandler, 'test.html.erb')
+server.mount('/', WEBrick::HTTPServlet::ERBHandler, 'test.html.erb')
 
 server.mount('/indicate.cgi', WEBrick::HTTPServlet::CGIHandler, 'indicate.rb')
 

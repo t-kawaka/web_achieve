@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </head>
   <body>
-    <h1>テスト開始</h1>
+    <!--<h1>テスト開始</h1>
     
     <% require 'pg' %>
 
@@ -14,20 +14,20 @@
       下記に文字を入力してください<br><br>
       <input type="text" name="input"><br>
       <input type="submit" name="送信">
-    </form>
+    </form> -->
     
-    <% result = connection.exec("select date, weight, give_for from crops;") %>
+    <% result = connection.exec("select give_for, quality from crops where not(give_for ='自家消費') and quality = 'FALSE';") %>
     <% date = [] %>
 
     <% result.each do |record| %>
-      <%  date << "ゴーヤの大きさ：#{record["weight"]}　売った相手：#{record["give_for"]}" %>
+      <%  date << "売った相手：#{record["give_for"]}　品質：#{record["quality"]}" %>
     <% end %>
 
     <form action='goya.cgi' method='POST'>
-       下記のボタンを押すと、ゴーヤの大きさと売った相手の情報ページに飛びます<br><br>
+       <h2>下記のボタンを押すと、ゴーヤを売った相手とゴーヤの品質が悪いもの(false)が表示されます。</h2><br>
        <!-- valueには、送りたいデータを代入する -->
        <!-- name="goya"を、情報の目印とする -->
-      <input type="text" name="goya" value="<%= date.join(' ') %>">
+      <input type="text_field" name="goya" value="<%= date.join(' ') %>">
       <input type="submit" name="送信" >
     </form>
   </body>

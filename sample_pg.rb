@@ -15,7 +15,7 @@ begin
   # 取り出した各行を処理する
   result.each do |record|
       # putsで取り出した一行ずつをコンソール上に出力する
-      puts "ゴーヤの大きさ：#{record["weight"]}　売った相手：#{record["give_for"]}"
+      puts "ゴーヤの大きさ：#{record["weight"]} 売った相手：#{record["give_for"]}"
   end
 ensure
   # 何かしらのエラーが発生した場合、

@@ -12,8 +12,8 @@ cgi.out("type" => "text/html", "charset" => "UTF-8") {
   # HTMLでレスポンスを返却する
   "<html>
     <body>
-      <p>ゴーヤの大きさと売った相手の情報は下記になります</p>
-      <p> 文字列：#{get}</p>
+      <p>ゴーヤを売った相手とゴーヤの品質が悪いもの(false)の件数は以下の通りです。</p>
+      <p>#{get}</p>
     </body>
   </html>"
 }
